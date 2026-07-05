@@ -34,7 +34,7 @@ const Register = () => {
 
   return (
     <div>
-      <Navbar style={<height-95px></height-95px>}/>
+      <Navbar style={<height-95px></height-95px>} />
       <div className="container mt-5 mb-3">
         <div
           className="row justify-content-center align-items-center"
@@ -45,7 +45,7 @@ const Register = () => {
               <div className="card-body p-5">
 
                 <h2 className="head1 text-center mb-3">
-                  Create Account 
+                  Create Account
                 </h2>
                 <p className='text-center'>to continue your interview preparation</p>
 
@@ -95,21 +95,21 @@ const Register = () => {
 
                     <p className="head1">or continue with</p>
                     <div className="icons text-center">
-                    <button className="google-btn btn btn-outline-dark w-40 mb-2">
-                      <i className="bi bi-google me-2"></i>
-                      Google
-                    </button>
-                     
-                    <button className="btn btn-outline-primary w-40">
-                      <i className="bi bi-linkedin me-2"></i>
-                      LinkedIn
-                    </button>
+                      <button className="google-btn btn btn-outline-dark w-40 mb-2">
+                        <i className="bi bi-google me-2"></i>
+                        Google
+                      </button>
+
+                      <button className="btn btn-outline-primary w-40">
+                        <i className="bi bi-linkedin me-2"></i>
+                        LinkedIn
+                      </button>
                     </div>
 
                   </div>
-                  
+
                   <div className="text-center">
-                  <button className='btn btns btn-outline-light width-100'>Register</button>
+                    <button className='btn btns btn-outline-light width-100'>Register</button>
                   </div>
                   <div className="text-center text-muted">Already have an account? <Link to="/login">Login</Link></div>
                   <p className='text-center mt-3 text-muted'>By registering, you agree to our Terms and Policies </p>
