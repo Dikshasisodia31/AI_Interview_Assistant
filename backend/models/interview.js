@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const interviewSchema = new mongoose.Schema(
     {
-        userId : {
+        user_id : {
             type:mongoose.Schema.Types.ObjectId,
             ref : "User",
         },
