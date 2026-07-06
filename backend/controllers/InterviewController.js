@@ -52,3 +52,26 @@ module.exports.generateInterviewQuestions = async(req,res) =>{
      });
     }
 };
+
+module.exports.getInterviewById = async(req,res) => {
+    try{
+        const interview = await Interview.findById(req.params.id);
+        if(!interview){
+            return res.status(404).json({
+                success : false,
+                message : "Interview not found"
+            });
+        }
+
+        return res.status(200).json({
+            success : true,
+            interview
+        });
+    }catch(err){
+        console.log(error);
+        res.status(500).json({
+            success : false,
+            message : err.message,
+        });
+    }
+}
