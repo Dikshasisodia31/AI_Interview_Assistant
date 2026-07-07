@@ -2,6 +2,8 @@ import React from 'react'
 import { useState } from 'react'
 import { createInterview } from '../../services/interviewService';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../../components/layout/Navbar';
+import { Link } from 'react-router-dom';
 
 const InterviewSetup = () => {
     const navigate = useNavigate();
@@ -17,7 +19,7 @@ const InterviewSetup = () => {
                 difficulty,
                 numberOfQuestions,
             });
-            navigate(`/interview/session/${response.interview._id}`);
+            navigate(`/interview/details/${response.interview._id}`);
         } catch (error) {
             console.log(error);
         }
@@ -30,9 +32,11 @@ const InterviewSetup = () => {
                     <div className="card shadow border-0 mt-5">
                         <div className="card-body">
                             <form onSubmit={handleStart}>
+                                <p className='eyebrow mb-2'>New Session</p>
                                 <h2 className='heading text-center'>
                                     Create new Interview
                                 </h2>
+                                <p className='subtitle mb-4'>Pick a role and difficulty, we will put together in interview. </p>
                                 <div className="mb-3">
                                     <label className='form-label heading'>
                                         Role
@@ -78,6 +82,7 @@ const InterviewSetup = () => {
                                             setnumberOfQuestions(Number(e.target.value))
                                         }
                                     >
+                                        <option>5</option>
                                         <option>10</option>
                                         <option>20</option>
                                         <option>30</option>
@@ -92,6 +97,13 @@ const InterviewSetup = () => {
                                 </button>
                             </form>
                         </div>
+                    </div>
+                    <div className='tips-panel mt-3'>
+                        <ul>
+                            <li>Choose your Role you want to practiced with</li>
+                            <li>Prepare well before start</li>
+                        </ul>
+                    <Link to="/" className='back-link'>Back</Link>
                     </div>
                 </div>
             </div>
