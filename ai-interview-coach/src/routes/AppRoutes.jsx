@@ -7,6 +7,7 @@ import Dashboard from "../pages/Dashboard/Dashboard";
 import InterviewSetup from "../pages/Interview/InterviewSetup";
 import InterviewSession from "../pages/Interview/InterviewSession";
 import InterviewResult from "../pages/Interview/InterviewResult";
+import InterviewDetails from "../pages/Interview/InterviewDetails";
 
 const AppRoutes = () => {
   return (
@@ -18,6 +19,7 @@ const AppRoutes = () => {
       <Route path="/interview/setup" element={<InterviewSetup/>}/>
       <Route path="/interview/session/:id" element={<InterviewSession/>}/>
       <Route path="/interview/result" element={<InterviewResult/>}/>
+      <Route path="/interview/details/:id" element={<InterviewDetails/>}/>
     </Routes>
   );
 };
