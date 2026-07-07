@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <nav className="nav-container navbar navbar-expand-lg navbar-dark">
         <div className="container">
-          <Link className="nav-head navbar-brand fw-bold" to="/">
+          <Link className="heading nav-head navbar-brand fw-bold" to="/">
             AI Interview Coach
           </Link>
 
@@ -22,5 +22,4 @@ const Navbar = () => {
       </nav>
   )
 }
-
 export default Navbar
