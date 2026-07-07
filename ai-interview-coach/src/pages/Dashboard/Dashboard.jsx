@@ -82,7 +82,7 @@ function Dashboard() {
 
           </div>
 
-          <Link to="/interview/setup" className="btn dash-btns btn-outline-light mt-4"> 
+          <Link to="/interview/setup" className="btn btns btn-outline-light mt-4"> 
               Start Interview
           </Link>
 
