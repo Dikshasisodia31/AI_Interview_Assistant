@@ -44,7 +44,7 @@ const Register = () => {
             <div className="card shadow border-90">
               <div className="card-body p-5">
 
-                <h2 className="head1 text-center mb-2">
+                <h2 className="head1 text-center m-0">
                   Create Account
                 </h2>
                 <p className='text-center'>to continue your interview preparation</p>
@@ -91,22 +91,22 @@ const Register = () => {
                     />
                   </div>
 
-                  <div className="text-center my-4">
+                  {/* <div className="text-center my-4"> */}
 
-                    <p className="head1">or continue with</p>
-                    <div className="icons text-center">
-                      <button className="google-btn btn w-40 mb-2">
+                    <p className="head1 text-center m-0">or continue with</p>
+                    <div className="icons text-center m-0"> 
+                      <button className="google-btn btn-primary w-40">
                         <i className="bi bi-google me-2"></i>
                         Google
                       </button>
 
-                      <button className="btn btn-outline-primary w-40">
+                      {/* <button className="btn btn-outline-primary w-40">
                         <i className="bi bi-linkedin me-2"></i>
                         LinkedIn
-                      </button>
-                    </div>
+                      </button> */}
+                  </div> 
 
-                  </div>
+                  {/* </div> */}
 
                   <div className="text-center">
                     <button className='btn btns btn-outline-light width-100'>Register</button>

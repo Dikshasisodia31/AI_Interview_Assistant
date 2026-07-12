@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
-import { useNavigate,useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import api from '../../services/api';
 
 const InterviewSession = () => {
@@ -39,11 +39,17 @@ const InterviewSession = () => {
     const handleAnswerChange = (e) => {
         console.log(e.target.value);
 
-        const updatedInterview = { ...interview };
+        const updatedQuestions = [...interview.questions];
 
-        updatedInterview.questions[currentQuestion].answer = e.target.value;
+        updatedQuestions[currentQuestion] = {
+            ...updatedQuestions[currentQuestion],
+            answer: e.target.value,
+        };
 
-        setInterview(updatedInterview);
+        setInterview({
+            ...interview,
+            questions: updatedQuestions,
+        });
     };
 
     const handlePrev = () => {
@@ -61,9 +67,9 @@ const InterviewSession = () => {
 
     const handleSubmitInterview = async () => {
         try {
-            //   await api.put(`/interviews/${id}/submit`,{
-            //     questions : interview.questions,
-            //   })
+            await api.put(`interviews/${id}/submit`, {
+                questions: interview.questions,
+            })
             navigate(`/interview/result/${id}`);
         } catch (err) {
             console.log(err);
@@ -96,13 +102,13 @@ const InterviewSession = () => {
                             </div>
                             <button disabled={currentQuestion == 0}
                                 onClick={handlePrev}
-                                className='btns mt-3'
+                                className='btns mt-3 m-3'
                             >Previous
                             </button>
 
                             {currentQuestion === interview.questions.length - 1 ? (
                                 <button
-                                    className='btns btn btn-outline-light mt-4'
+                                    className='btns btn btn-outline-light mt-3'
                                     onClick={handleSubmitInterview}>
                                     Submit Interview
                                 </button>
@@ -111,7 +117,7 @@ const InterviewSession = () => {
                                     disabled={currentQuestion == interview.questions.length - 1}
                                     onClick={handleNext}
                                     className='btns'
-                                    >
+                                >
                                     Next
                                 </button>
                             )}
