@@ -74,4 +74,35 @@ module.exports.getInterviewById = async(req,res) => {
             message : err.message,
         });
     }
-}
+};
+
+module.exports.submitInterview = async (req,res) => {
+    try{
+        const {questions} = req.body;
+        const interview = await Interview.findById(req.params.id);
+        if(!interview){
+            return res.status(404).json({
+                success : false,
+                message : "Interview not found",
+            });
+        }
+        interview.questions = questions;
+
+        questions.forEach(q,index => {
+            interview.questions[index].answer = q.answer;
+        });
+        
+        await interview.save();
+
+        res.status(200).json({
+            success : true,
+            message : "Interview is stored successfully",
+            interview,
+        });
+    }catch(error){
+        res.status(500).json({
+            success : false,
+            message : error.msg,
+        })
+    }
+};
