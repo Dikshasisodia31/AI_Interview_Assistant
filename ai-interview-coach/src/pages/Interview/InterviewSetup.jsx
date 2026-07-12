@@ -48,6 +48,7 @@ const InterviewSetup = () => {
                                             setRole(e.target.value)
                                         }
                                     >
+                                        <option>Python Developer</option>
                                         <option>MERN Developer</option>
                                         <option>Java Developer</option>
                                         <option>Frontend Developer</option>
