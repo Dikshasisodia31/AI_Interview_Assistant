@@ -31,9 +31,7 @@ const InterviewDetails = () => {
     const handleGenerate = async () =>{
         try{
             setGenerating(true);
-
             await api.post(`interviews/${id}/generate`);
-
             await fetchInterview();
         }catch(error){
             console.log(error);
