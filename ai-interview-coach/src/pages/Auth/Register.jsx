@@ -24,7 +24,7 @@ const Register = () => {
         },
       });
     } catch (err) {
-      console.log(err);
+      console.log(err.message);
     }
   };
 
@@ -41,7 +41,7 @@ const Register = () => {
           style={{  }}
         >
           <div className="col-md-5">
-            <div className="card shadow border-90">
+            <div className="card shadow border-90 mt-4">
               <div className="card-body p-5">
 
                 <h2 className="head1 text-center m-0">
@@ -93,18 +93,18 @@ const Register = () => {
 
                   {/* <div className="text-center my-4"> */}
 
-                    <p className="head1 text-center m-0">or continue with</p>
+                    {/* <p className="head1 text-center m-0">or continue with</p>
                     <div className="icons text-center m-0"> 
                       <button className="google-btn btn-primary w-40">
                         <i className="bi bi-google me-2"></i>
                         Google
-                      </button>
+                      </button> */}
 
                       {/* <button className="btn btn-outline-primary w-40">
                         <i className="bi bi-linkedin me-2"></i>
                         LinkedIn
                       </button> */}
-                  </div> 
+                  {/* </div>  */}
 
                   {/* </div> */}
 

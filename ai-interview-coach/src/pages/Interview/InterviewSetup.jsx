@@ -91,7 +91,7 @@ const InterviewSetup = () => {
                                 </div>
                                 <div className="heading alert alert-info">
                                     Estimated Time:{" "}
-                                    {numberOfQuestions * 2} Minutes
+                                    {numberOfQuestions * 3} Minutes
                                 </div>
                                 <button className='btns btn btn-outline-light w-100'>
                                     Start Interview

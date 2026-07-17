@@ -11,16 +11,33 @@ const InterviewSession = () => {
     const [interview, setInterview] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    const INTERVIEW_TIME = 10*60;
+
+    const [timeLeft, setTimeLeft] = useState(INTERVIEW_TIME);
+    const [submitting, setSubmitting] = useState(false);
+
     useEffect(() => {
         fetchInterview();
     }, []);
+
+    useEffect(()=>{
+         if(timeLeft <= 0){
+            handleSubmitInterview();
+            return;
+         }
+         const timer = setInterval(()=>{
+            setTimeLeft((prev) => prev-1);
+         },1000);
+
+         return () => clearInterval(timer);
+    },[timeLeft]);
 
     const fetchInterview = async () => {
         try {
             const response = await api.get(`interviews/${id}`);
             setInterview(response.data.interview);
-        } catch (err) {
-            console.log(err);
+        } catch (error) {
+            console.log(error.message);
         } finally {
             setLoading(false);
         }
@@ -33,6 +50,13 @@ const InterviewSession = () => {
     if (!interview) {
         return <h3 className='text-center'>Interview not found.</h3>
     }
+
+    const formatTime = (seconds) => {
+        const minutes = Math.floor(seconds/60);
+        const secs = seconds % 60;
+
+        return `${String(minutes).padStart(2,"0")} : ${String(secs).padStart(2,"0")}`;
+    };
 
     const question = interview.questions[currentQuestion];
 
@@ -66,13 +90,15 @@ const InterviewSession = () => {
 
 
     const handleSubmitInterview = async () => {
+        if(submitting) return;
+        setSubmitting(true);
         try {
-            await api.put(`interviews/${id}/submit`, {
+            await api.put(`/interviews/${id}/submit`, {
                 questions: interview.questions,
             })
             navigate(`/interview/result/${id}`);
-        } catch (err) {
-            console.log(err);
+        } catch (error) {
+            console.log(error.message);
         }
     };
 
@@ -85,6 +111,9 @@ const InterviewSession = () => {
                             <div>
                                 <span className='head1 badge'>
                                     Question {currentQuestion + 1} of {interview.questions.length};
+                                </span>
+                                <span className={`badge fs-6 ${timeLeft <= 10 ? "bg-danger" : "bg-success"}`}>
+                                    {formatTime(timeLeft)}
                                 </span>
                             </div>
                             <h2 className='mb-4'>
@@ -108,9 +137,10 @@ const InterviewSession = () => {
 
                             {currentQuestion === interview.questions.length - 1 ? (
                                 <button
-                                    className='btns btn btn-outline-light mt-3'
-                                    onClick={handleSubmitInterview}>
-                                    Submit Interview
+                                    className='btns btn btn-outline-light'
+                                    onClick={handleSubmitInterview}
+                                    disabled={submitting}>
+                                    {submitting ? "Submitting..." : "Submit Interview"}
                                 </button>
                             ) : (
                                 <button

@@ -39,11 +39,11 @@ function Login() {
               <h2 className="">
                 Be Ready for your Next Interview.
               </h2>
-              <p>
-                Interactive Practice sessions 
-              </p>
-              <p>Know about your weakness</p>
-              <p></p>
+              <p mt-3>Login to your account.</p>
+              <p>Choose your role.</p>
+              <p>Start inteview.</p>
+              <p>Submit and get feedback.</p>
+              <p mb-3>Know your weakness.</p>
 
              <div className="hero-stats">
                 <span>4,208 mock interviews run this week</span>

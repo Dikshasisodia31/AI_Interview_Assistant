@@ -78,7 +78,9 @@ module.exports.getInterviewById = async(req,res) => {
 
 module.exports.submitInterview = async (req,res) => {
     try{
+        console.log("i have reach the controller");
         const {questions} = req.body;
+        console.log(questions);
         const interview = await Interview.findById(req.params.id);
         if(!interview){
             return res.status(404).json({
@@ -87,22 +89,21 @@ module.exports.submitInterview = async (req,res) => {
             });
         }
         interview.questions = questions;
-
-        questions.forEach(q,index => {
-            interview.questions[index].answer = q.answer;
-        });
+        console.log("before save");
         
         await interview.save();
 
+        console.log("after save");
         res.status(200).json({
             success : true,
             message : "Interview is stored successfully",
             interview,
         });
     }catch(error){
+        console.log("error",error);
         res.status(500).json({
             success : false,
-            message : error.msg,
+            message : error.message,
         })
     }
 };
