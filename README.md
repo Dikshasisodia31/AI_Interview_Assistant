@@ -1,6 +1,6 @@
 # 🤖 AI Interview Preparation Platform
 
-An AI-powered interview preparation platform built using the **MERN Stack** that helps users practice technical interviews for different job roles. Users can create customized mock interviews by selecting a role, difficulty level, and number of questions. The platform uses **Google Gemini AI** to generate interview questions and provide an interactive interview experience.
+An AI-powered interview preparation platform built using the **MERN Stack** that helps users practice technical interviews for different job roles. Users can create customized mock interviews by selecting a role, difficulty level, and number of questions. The platform uses **Google Gemini AI** to generate interview questions and provide a detailed feedback of your answers.
 
 ---
 
@@ -13,6 +13,7 @@ An AI-powered interview preparation platform built using the **MERN Stack** that
 * 🎯 Select job role (MERN, Java, Frontend, Backend, AI/ML, etc.)
 * 📈 Choose interview difficulty (Easy, Medium, Hard)
 * 🤖 AI-generated interview questions using Google Gemini API
+* 🤖 Complete evaluation and feedback of your work.
 * 💬 Interactive interview session
 * 📦 MongoDB database for storing interviews and responses
 * 🔒 Protected routes with JWT authentication
@@ -178,7 +179,7 @@ Backend  : http://localhost:3000
 
 ## 👨‍💻 Author
 
-**Your Name**
+**Diksha Sisodia**
 
 GitHub: https://github.com/dikshasisodia31
 
