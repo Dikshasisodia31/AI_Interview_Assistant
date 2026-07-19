@@ -6,9 +6,11 @@ import { Link } from "react-router-dom";
 function Dashboard() {
 
   const interviews = [
-    {role : "MERN Developer",score:80},
-    {role:"Java Developer",score:75},
-    {role:"AI Engineer",score:82},
+    {role : "MERN Developer",status:"IN PROGRESS"},
+    {role:"Java Developer",status:"IN PROGRESS"},
+    {role:"AI Engineer",status:"IN PROGRESS"},
+    {role:"Python Developer",status:"IN PROGRESS"},
+    {role:"Backend developer",status:"IN PROGRESS"},
   ];
   //  const location = useLocation();
   return (
@@ -26,10 +28,16 @@ function Dashboard() {
           <h3 className="eyebrow">
             Welcome Back, 
           </h3>
+
+          {/* <div className="row">
+             <div className="col-6">Your account is set-up, let's get interview-ready.</div>
+             <div className="col-4">submit </div>
+          </div> */}
           <h2 className="heading mb-4 mt-3">
             Your account is set-up, let's get interview-ready.
           </h2>
 
+          
           <p className="text-muted">
             Twelve mock interviews logged so far.<br></br>
             Node.js is holding back your average — a focused round there could lift your score fastest.
@@ -73,7 +81,7 @@ function Dashboard() {
                 {interviews.map((iv,i)=>(
                   <li className="list-group-item" key={i}>
                       <span className="role-name">{iv.role}</span>
-                      <span className="score-pct">{iv.score}%</span>
+                      <span className="score-pct">{iv.status}</span>
                   </li>
                 ))}
               </ul>
@@ -82,8 +90,8 @@ function Dashboard() {
 
           </div>
 
-          <Link to="/interview/setup" className="btn btns btn-outline-light mt-4"> 
-              Start Interview
+          <Link to="/interview/setup" className="btn btns btn-outline-light mt-2"> 
+            Start New Interview
           </Link>
 
         </div>

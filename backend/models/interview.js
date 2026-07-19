@@ -38,9 +38,13 @@ const interviewSchema = new mongoose.Schema(
         
         score :{
             type : Number,
-            deafult : 0
+            default : 0
         },
-
+        
+        overallfeedback : [{
+            type : String,
+        }],
+        
         questions : [
             {
                question : String,
@@ -58,6 +62,13 @@ const interviewSchema = new mongoose.Schema(
                }
             },
         ],
+
+        strengths : [{
+            type : String,
+        }],
+        weaknesses : [{
+            type : String,
+        }]
     },
     {
         timestamps:true,

@@ -1,5 +1,6 @@
 const Interview = require("../models/interview");
 const {generateQuestions} = require("../services/geminiService")
+const {evaluateInterview} = require("../services/evaluateInterview");
 
 module.exports.createInterview = async (req,res) => {
     try{
@@ -78,7 +79,7 @@ module.exports.getInterviewById = async(req,res) => {
 
 module.exports.submitInterview = async (req,res) => {
     try{
-        console.log("i have reach the controller");
+        // console.log("i have reach the controller");
         const {questions} = req.body;
         console.log(questions);
         const interview = await Interview.findById(req.params.id);
@@ -89,11 +90,29 @@ module.exports.submitInterview = async (req,res) => {
             });
         }
         interview.questions = questions;
-        console.log("before save");
+        console.log(interview.questions.length);
+
+        const evaluation = await evaluateInterview(interview);
+
+        console.log("evaluation");
+
+        evaluation.questions.forEach((result, index) => {
+            if(interview.questions[index]){
+            interview.questions[index].score = result.score;
+            interview.questions[index].feedback = result.feedback;
+            }
+        });
+
+        interview.score = evaluation.overallScore;
+        interview.overallfeedback = [evaluation.overallFeedback];
+        interview.strengths = evaluation.strengths;
+        interview.weaknesses = evaluation.weaknesses;
+        interview.status = "COMPLETED";
         
+        // console.log("before save");
         await interview.save();
 
-        console.log("after save");
+        // console.log("after save");
         res.status(200).json({
             success : true,
             message : "Interview is stored successfully",
