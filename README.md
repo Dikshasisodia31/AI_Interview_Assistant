@@ -51,8 +51,8 @@ An AI-powered interview preparation platform built using the **MERN Stack** that
 
 
 ## Screenshots
-![](ai-interview-coach/src/assets/homePage.png)
-![](ai-interview-coach/src/assets/login.png)
+![](ai-interview-coach/src/assets/homePage.jpeg)
+![](ai-interview-coach/src/assets/login.jpeg)
 ![](ai-interview-coach/src/assets/dashboard.png)
 ![](ai-interview-coach/src/assets/create.png)
 
