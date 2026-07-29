@@ -49,6 +49,16 @@ An AI-powered interview preparation platform built using the **MERN Stack** that
 
 * Google Gemini API
 
+
+## Screenshots
+![](ai-interview-coach/src/assets/homePage.png)
+![](ai-interview-coach/src/assets/login.png)
+![](ai-interview-coach/src/assets/dashboard.png)
+![](ai-interview-coach/src/assets/create.png)
+
+
+
+
 ---
 
 ## 📂 Project Structure
