@@ -14,7 +14,12 @@ mongoose.connection.once("open", () => {
   console.log("Connected DB:", mongoose.connection.name);
 });
 
-app.use(cors());
+app.use(cors({
+  origin : [
+    "http://localhost:5173",
+    "ai-interview-assistant-phl2lu1lj-dikshasisodia31s-projects.vercel.app"
+  ]
+}));
 app.use(express.json());
 
 app.use("/api/auth",authRoutes);
