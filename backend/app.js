@@ -17,7 +17,7 @@ mongoose.connection.once("open", () => {
 app.use(cors({
   origin : [
     "http://localhost:5173",
-    "ai-interview-assistant-phl2lu1lj-dikshasisodia31s-projects.vercel.app"
+    "http://ai-interview-assistant-phl2lu1lj-dikshasisodia31s-projects.vercel.app"
   ]
 }));
 app.use(express.json());
